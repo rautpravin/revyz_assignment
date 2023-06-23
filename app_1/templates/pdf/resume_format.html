@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <style>
+            .desg {font-size: 14px; font-weight: bold;margin: 0px;color:gray;}
+            .name-1 {font-size: 18px; font-weight: bold;margin: 0px;}
+            .name-2 {font-size: 12px; font-weight: bold;margin: 0px;}
+            .contact {font-size: 12px; font-weight: bold;margin: 0px;}
+            .e-title{font-size: 12px; font-weight: bold;margin: 0px;margin-bottom: 8px;}
+        </style>
+    </head>
+    <body>
+        <div class="">
+            <p class="name-1">{{name}}</p>
+            <p class="desg">{{designation}}</p>
+            <p class="contact">{{contact_no}}</p>
+            <p class="contact">{{email}}</p>
+            <hr/>
+            <br/>
+            <h2><u>Objective</u></h2>
+            <p>Looking for a challenging role in a reputable organization to utilize my technical, database,
+                and management skills for the growth of the organization as well as to enhance my knowledge
+                about new and emerging trends in the IT sector.
+            </p>
+            <br/>
+
+            <h2><u>Experience</u></h2>
+            {% for e in experiences %}
+            <h3 class="e-title">
+                Employer {{ forloop.counter }}:- {{e.work_experience.employer}} <br/>
+                Designation:- {{e.work_experience.designation}}<br/>
+                Joining Date:- {{e.work_experience.joining_date}}  <br/>
+                Leaving Date:- {{e.work_experience.leaving_date}}<br/>
+                Is Currently Working:- {{e.work_experience.is_currently_working}}<br/>
+            </h3>
+            {% endfor %}
+            <br/>
+
+            <h2><u>Skill Set</u></h2>
+            <ul>
+                {% for sk in skillsets %}
+                <li>{{sk.tech_skill.skill}}</li>
+                {% endfor %}
+            </ul>
+
+            <br/>
+
+            <h2><u>Personal Details</u></h2>
+            <p class="name-2">Name:- {{name}}</p>
+            <p class="name-2">DOB:- {{dob}}</p>
+            <p class="name-2">Gender:- {{gender}}</p>
+            <p class="name-2">Email:- {{email}}</p>
+            <p class="name-2">Contact No:- {{contact_no}}</p>
+            <br/>
+
+            <h2><u>Declaration</u></h2>
+            <p>I hereby declare that the above information to be true to the best of my knowledge and belief.</p>
+
+        </div>
+    </body>
+</html>
